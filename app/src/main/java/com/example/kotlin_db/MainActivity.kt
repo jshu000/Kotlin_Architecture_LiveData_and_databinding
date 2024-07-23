@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
+import com.example.kotlin_db.databinding.ActivityMainBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -15,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var database: ContactDatabase
     lateinit var mainViewModel: MainViewModel
     lateinit var txtcount: TextView
+    lateinit var binding: ActivityMainBinding
+
     private val factsTextView :TextView
         get() =findViewById(R.id.factview)
     private val btnupdate :TextView
@@ -23,7 +27,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
+
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+
+/*
+        val t1=findViewById<TextView>(R.id.text1)
+        val t2=findViewById<TextView>(R.id.text2)
+        t1.text="text1 is showing"
+        t2.text="text2   is showing"
+*/
+
+        binding.text1.text="text1 is showing"
+        binding.text2.text="text2   is showing"
+
+        val quoteObj = Quote("Jashwant","Rahul")
+        binding.quote =quoteObj
+
         lifecycle.addObserver(Observer())
         Log.d("jashwant","Mainactivity oncreate")
 
