@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var database: ContactDatabase
     lateinit var mainViewModel: MainViewModel
     lateinit var txtcount: TextView
+    private val factsTextView :TextView
+        get() =findViewById(R.id.factview)
+    private val btnupdate :TextView
+        get() =findViewById(R.id.btnupdate)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +27,18 @@ class MainActivity : AppCompatActivity() {
         lifecycle.addObserver(Observer())
         Log.d("jashwant","Mainactivity oncreate")
 
-        mainViewModel = ViewModelProvider(this,MainViewModelFactory(20)).get(MainViewModel::class.java)
+        //mainViewModel = ViewModelProvider(this,MainViewModelFactory(20)).get(MainViewModel::class.java)
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        mainViewModel.factsLiveData.observe(this,Observer{
+            factsTextView.text =it
+        })
+        btnupdate.setOnClickListener{
+            mainViewModel.updateLiveData()
+        }
+
         txtcount=findViewById(R.id.counter)
-        setText()
+        /*setText()*/
 
         database = Room.databaseBuilder(applicationContext,ContactDatabase::class.java,"contactDB").build()
 
@@ -34,14 +47,14 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-    }
+    }/*
     fun setText(){
         txtcount.text = mainViewModel.count.toString()
     }
     fun increment(view: View){
         mainViewModel.increment();
         setText()
-    }
+    }*/
     fun getData(view :View){
         database.contactDao().getContact().observe(this, Observer {
             Log.d("jashwant",it.toString())
