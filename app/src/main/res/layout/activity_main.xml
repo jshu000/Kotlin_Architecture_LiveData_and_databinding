@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="quote"
-            type="com.example.kotlin_db.Quote" />
+            name="mainViewModel"
+            type="com.example.kotlin_db.MainViewModel" />
     </data>
 
     <LinearLayout
@@ -15,60 +15,21 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:onClick="getData"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:id="@+id/counter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button"
+            android:id="@+id/quotetext"
             android:onClick="increment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+" />
+            android:text="quotetext" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:id="@+id/factview"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnupdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{()->mainViewModel.updateLiveData()}"
             android:text="Update" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{quote.text}"
-            android:id="@+id/text1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{quote.author}"
-            android:id="@+id/text2" />
 
     </LinearLayout>
 </layout>
