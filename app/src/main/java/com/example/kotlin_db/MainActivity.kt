@@ -32,9 +32,14 @@ class MainActivity : AppCompatActivity() {
         //mainViewModel = ViewModelProvider(this,MainViewModelFactory(20)).get(MainViewModel::class.java)
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
+
+        // android:text="@{mainViewModel.quoteLiveDataObject}"
+        /* Below function can be removed by this statement but for livedata we need to pass the owner(this-> mainactivity)
         mainViewModel.quoteLiveDataObject.observe(this,Observer{
             binding.quotetext.text=it
         })
+         */
+        binding.lifecycleOwner = this
 
         binding.mainViewModel = mainViewModel
 
