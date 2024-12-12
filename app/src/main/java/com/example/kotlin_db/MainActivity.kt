@@ -27,10 +27,7 @@ class MainActivity : AppCompatActivity() {
         txtcount=findViewById(R.id.counter)
         setText()
 
-        database = Room.databaseBuilder(applicationContext,
-            ContactDatabase::class.java,
-            "contactDB")
-            .build()
+        database = ContactDatabase.getdatabase(this)
 
         GlobalScope.launch {
             database.contactDao().insertcontact(Contact(0,"Jashwant","9999"))
