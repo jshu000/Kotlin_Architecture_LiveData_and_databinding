@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         setText()
 
         database = ContactDatabase.getdatabase(this)
+        val database2 =ContactDatabase.getdatabase(this)
 
         GlobalScope.launch {
             database.contactDao().insertcontact(Contact(0,"Jashwant","9999"))
