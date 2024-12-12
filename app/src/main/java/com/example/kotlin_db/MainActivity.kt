@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
     lateinit var database: ContactDatabase
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val database2 =ContactDatabase.getdatabase(this)
 
         GlobalScope.launch {
-            database.contactDao().insertcontact(Contact(0,"Jashwant","9999"))
+            database.contactDao().insertcontact(Contact(0,"Jashwant","9999",Date()))
         }
 
 
