@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val database2 =ContactDatabase.getdatabase(this)
 
         GlobalScope.launch {
-            database.contactDao().insertcontact(Contact(0,"Jashwant","9999",Date()))
+            database.contactDao().insertcontact(Contact(0,"Jashwant","9999",Date(),3))
         }
 
 

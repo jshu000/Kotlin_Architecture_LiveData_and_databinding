@@ -11,5 +11,6 @@ data class Contact(
     val id:Long,
     val name: String,
     val phone: String,
-    val createdDate:Date    //we cant able to save date object directly so we had converted it to long
+    val createdDate:Date,    //we cant able to save date object directly so we had converted it to long
+    val isActive:Int
 )
