@@ -15,7 +15,14 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edittext"
+            android:text="@={mainViewModel.quoteLiveDataObject}"/>
 
+            <!--Remember =(equal to ) in the text here.-->
+        
         <TextView
             android:id="@+id/quotetext"
             android:onClick="increment"

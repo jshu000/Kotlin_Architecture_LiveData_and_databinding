@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModel
     }
 }*/
 class MainViewModel() :ViewModel(){
-    val quoteLiveDataObject =MutableLiveData<String>("This is a fact")
+    val quoteLiveDataObject =MutableLiveData("This is a fact")
 
 
     fun updateLiveData(){

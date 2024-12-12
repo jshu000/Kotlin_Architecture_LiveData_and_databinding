@@ -39,9 +39,10 @@ class MainActivity : AppCompatActivity() {
             binding.quotetext.text=it
         })
          */
-        binding.lifecycleOwner = this
 
         binding.mainViewModel = mainViewModel
+
+        binding.lifecycleOwner = this
 
         /* This function is replaced by android:onClick="@{()->mainViewModel.updateLiveData()}" in axtivity_main.xml
         binding.btnupdate.setOnClickListener{
