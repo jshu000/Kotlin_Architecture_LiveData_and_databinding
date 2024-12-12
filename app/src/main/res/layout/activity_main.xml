@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="mainViewModel"
-            type="com.example.kotlin_db.MainViewModel" />
+            name="post"
+            type="com.example.kotlin_db.Post" />
     </data>
 
     <LinearLayout
@@ -14,29 +14,30 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MainActivity">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edittext"
-            android:text="@={mainViewModel.quoteLiveDataObject}"/>
-
-            <!--Remember =(equal to ) in the text here.-->
+        
         
         <TextView
-            android:id="@+id/quotetext"
+            android:id="@+id/postttile"
             android:onClick="increment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{mainViewModel.quoteLiveDataObject}" />
+            android:text="@{post.title}" />
 
 
-        <Button
-            android:id="@+id/btnupdate"
+        <TextView
+            android:id="@+id/postdesc"
+            android:onClick="increment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{()->mainViewModel.updateLiveData()}"
-            android:text="Update" />
+            android:text="@{post.desc}" />
+        <TextView
+            android:id="@+id/posturl"
+            android:onClick="increment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{post.url}" />
+
+
 
     </LinearLayout>
 </layout>

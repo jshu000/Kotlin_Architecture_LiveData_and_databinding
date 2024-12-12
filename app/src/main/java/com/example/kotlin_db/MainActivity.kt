@@ -40,7 +40,9 @@ class MainActivity : AppCompatActivity() {
         })
          */
 
-        binding.mainViewModel = mainViewModel
+        val post= Post("Title", "Desciption","https://picsum.photos/id/237/200/300")
+
+        binding.post = post
 
         binding.lifecycleOwner = this
 
