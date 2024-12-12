@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MainActivity">
-        
+
         
         <TextView
             android:id="@+id/postttile"
@@ -30,12 +30,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{post.desc}" />
-        <TextView
+        <ImageView
             android:id="@+id/posturl"
             android:onClick="increment"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{post.url}" />
+            android:src="@color/purple_700"
+            imageFromurl="@{post.url}"
+            />
 
 
 
