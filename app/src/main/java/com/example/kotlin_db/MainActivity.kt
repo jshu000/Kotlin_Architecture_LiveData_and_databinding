@@ -27,7 +27,10 @@ class MainActivity : AppCompatActivity() {
         txtcount=findViewById(R.id.counter)
         setText()
 
-        database = Room.databaseBuilder(applicationContext,ContactDatabase::class.java,"contactDB").build()
+        database = Room.databaseBuilder(applicationContext,
+            ContactDatabase::class.java,
+            "contactDB")
+            .build()
 
         GlobalScope.launch {
             database.contactDao().insertcontact(Contact(0,"Jashwant","9999"))
@@ -43,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         setText()
     }
     fun getData(view :View){
-        database.contactDao().getContact().observe(this, Observer {
+        database.contactDao().getContacts().observe(this, Observer {
             Log.d("jashwant",it.toString())
         })
     }
